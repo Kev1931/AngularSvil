@@ -9,6 +9,14 @@ const routes: Routes = [
     loadChildren: () => import("./template/template.module").then(m => m.TemplateModule)
   },
   {
+    path: "client",
+    loadChildren: () => import("./pages/client/client.module").then(m => m.ClientModule)
+  },
+  {
+    path: "product",
+    loadChildren: () => import("./pages/product/product.module").then(m => m.ProductModule)
+  },
+  {
     path: "login",
     loadChildren:() => import("./login/login.module").then(m => m.LoginModule)
   }

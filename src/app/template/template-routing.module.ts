@@ -7,8 +7,12 @@ const routes: Routes = [
     path: "", component: TemplateComponent,
     children:[
       {
-        path: "prodotto", 
+        path: "prodotto",
         loadChildren: () => import("../pages/product/product.module").then(m => m.ProductModule)
+      },
+      {
+        path: "client",
+        loadChildren: () => import("../pages/client/client.module").then(m => m.ClientModule)
       }
     ]
   }
