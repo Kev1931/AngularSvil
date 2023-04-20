@@ -6,6 +6,7 @@ import { AppComponent } from './app.component';
 import { TemplateModule } from './template/template.module';
 import { LoginModule } from './login/login.module';
 
+
 @NgModule({
   declarations: [
     AppComponent

@@ -1,13 +1,8 @@
-<div>Header</div>
-<div></div>
-<div>
-    <a (click)="goToProduct()">Go to product</a>
-</div>
-<div>
-  <a (click)="goToClient()">Go to client</a>
-</div>
-<div>
-  <a (click)="Logout()">Logout</a>
+
+<div class="center">
+    <a (click)="goToProduct()" class="links">Go to product</a>
+    <a (click)="goToClient()"class="links">Go to client</a>
+    <a (click)="Logout()"class="links">Logout</a>
 </div>
 <div>
     <router-outlet></router-outlet>
