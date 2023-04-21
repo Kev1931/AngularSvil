@@ -9,12 +9,12 @@ const routes: Routes = [
     loadChildren: () => import("./template/template.module").then(m => m.TemplateModule)
   },
   {
-    path: "client",
-    loadChildren: () => import("./pages/client/client.module").then(m => m.ClientModule)
+    path: "product",
+    loadChildren: () => import("././pages/product/product-view/product-view.module").then(m => m.ProductViewModule)
   },
   {
-    path: "product",
-    loadChildren: () => import("./pages/product/product.module").then(m => m.ProductModule)
+    path: "client",
+    loadChildren: () => import("././pages/client/client-view/client-view.module").then(m => m.ClientViewModule)
   },
   {
     path: "login",

@@ -7,15 +7,16 @@ const routes: Routes = [
     path: "", component: TemplateComponent,
     children:[
       {
-        path: "prodotto",
-        loadChildren: () => import("../pages/product/product.module").then(m => m.ProductModule)
+        path: "product",
+        loadChildren: () => import("./../pages/product/product-view/product-view.module").then(m => m.ProductViewModule)
       },
       {
         path: "client",
-        loadChildren: () => import("../pages/client/client.module").then(m => m.ClientModule)
+        loadChildren: () => import("./../pages/client/client-view/client-view.module").then(m => m.ClientViewModule)
       }
     ]
   }
+
 ];
 
 @NgModule({

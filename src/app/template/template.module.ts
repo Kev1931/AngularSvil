@@ -4,6 +4,7 @@ import { CommonModule } from '@angular/common';
 import { TemplateRoutingModule } from './template-routing.module';
 import { TemplateComponent } from './template.component';
 import { RouterModule } from '@angular/router';
+import { HeaderPageModule } from '../components/header-page/header-page.module';
 
 
 @NgModule({
@@ -13,7 +14,8 @@ import { RouterModule } from '@angular/router';
   imports: [
     CommonModule,
     TemplateRoutingModule,
-    RouterModule
+    RouterModule,
+    HeaderPageModule
   ],
   exports:[
     TemplateComponent

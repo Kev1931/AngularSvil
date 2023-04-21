@@ -14,17 +14,4 @@ export class TemplateComponent {
   }
 
 
-  goToProduct(){
-
-    this.router.navigateByUrl("template/prodotto");
-  }
-  goToClient(){
-
-    this.router.navigateByUrl("template/client");
-  }
-  Logout(){
-
-    this.router.navigateByUrl("login");
-  }
-
 }
