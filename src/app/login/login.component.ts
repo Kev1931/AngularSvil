@@ -6,6 +6,7 @@ import { Router } from '@angular/router';
   styleUrls: ['./login.component.scss']
 })
 export class LoginComponent {
+  public title = 'Benvenuti!!';  
   @Input() titleFiglio: string = ""
 
   constructor(private router: Router){

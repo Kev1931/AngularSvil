@@ -1,2 +1,11 @@
 <p>product-view works!</p>
-<app-product-list></app-product-list>
+Counter view : {{counterView}}
+
+
+<h2><app-product-list  (eventCounter)="counter($event)"></app-product-list></h2>
+
+
+<app-header-page [inputCounter]="counterView" ></app-header-page>
+
+
+

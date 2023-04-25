@@ -13,6 +13,8 @@ export class HeaderPageComponent {
   constructor(private router: Router){
 
 }
+@Input() inputCounter: number = 0;
+
 
 goToProduct(){
 

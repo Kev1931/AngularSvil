@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, EventEmitter, Output } from '@angular/core';
 
 @Component({
   selector: 'app-product-list',
@@ -7,4 +7,12 @@ import { Component } from '@angular/core';
 })
 export class ProductListComponent {
 
+  @Output() eventCounter = new EventEmitter<number>()
+
+  counterList: number = 0;
+
+  counter(){
+    this.counterList++;
+    this.eventCounter.emit(this.counterList++);
+  }
 }

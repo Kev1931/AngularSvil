@@ -5,6 +5,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { TemplateModule } from './template/template.module';
 import { LoginModule } from './login/login.module';
+import { MatSlideToggleModule } from '@angular/material/slide-toggle';
 
 
 @NgModule({
@@ -14,6 +15,7 @@ import { LoginModule } from './login/login.module';
   imports: [
     BrowserModule,
     AppRoutingModule,
+    MatSlideToggleModule,
     //TemplateModule,
     //LoginModule
   ],

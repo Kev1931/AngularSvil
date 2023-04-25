@@ -7,6 +7,7 @@ import { RouterModule } from '@angular/router';
 import { HeaderPageModule } from '../components/header-page/header-page.module';
 
 
+
 @NgModule({
   declarations: [
     TemplateComponent
@@ -15,7 +16,8 @@ import { HeaderPageModule } from '../components/header-page/header-page.module';
     CommonModule,
     TemplateRoutingModule,
     RouterModule,
-    HeaderPageModule
+    HeaderPageModule,
+   
   ],
   exports:[
     TemplateComponent

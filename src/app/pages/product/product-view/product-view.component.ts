@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component} from '@angular/core';
 
 @Component({
   selector: 'app-product-view',
@@ -7,4 +7,9 @@ import { Component } from '@angular/core';
 })
 export class ProductViewComponent {
 
+  counterView: number = 0;
+
+  counter(event: number){
+    this.counterView = event;
+  }
 }

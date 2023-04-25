@@ -4,6 +4,7 @@ import { CommonModule } from '@angular/common';
 import { ProductViewRoutingModule } from './product-view-routing.module';
 import { ProductViewComponent } from './product-view.component';
 import { ProductListModule } from '../product-list/product-list.module';
+import { HeaderPageModule } from 'src/app/components/header-page/header-page.module';
 
 
 @NgModule({
@@ -13,7 +14,8 @@ import { ProductListModule } from '../product-list/product-list.module';
   imports: [
     CommonModule,
     ProductViewRoutingModule,
-    ProductListModule
+    ProductListModule,
+    HeaderPageModule
   ]
 })
 export class ProductViewModule { }
