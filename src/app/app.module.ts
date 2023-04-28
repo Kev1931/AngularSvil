@@ -6,6 +6,9 @@ import { AppComponent } from './app.component';
 import { TemplateModule } from './template/template.module';
 import { LoginModule } from './login/login.module';
 import { MatSlideToggleModule } from '@angular/material/slide-toggle';
+import { ReactiveFormsModule } from '@angular/forms';
+import { HttpClientModule } from '@angular/common/http';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations'; 
 
 
 @NgModule({
@@ -16,6 +19,9 @@ import { MatSlideToggleModule } from '@angular/material/slide-toggle';
     BrowserModule,
     AppRoutingModule,
     MatSlideToggleModule,
+    ReactiveFormsModule,
+    HttpClientModule,
+    BrowserAnimationsModule 
     //TemplateModule,
     //LoginModule
   ],

@@ -4,6 +4,7 @@ import { CommonModule } from '@angular/common';
 import { ClientViewRoutingModule } from './client-view-routing.module';
 import { ClientViewComponent } from './client-view.component';
 import { ClientListModule } from '../client-list/client-list.module';
+import { HeaderPageModule } from 'src/app/components/header-page/header-page.module';
 
 
 @NgModule({
@@ -13,7 +14,8 @@ import { ClientListModule } from '../client-list/client-list.module';
   imports: [
     CommonModule,
     ClientViewRoutingModule,
-    ClientListModule
+    ClientListModule,
+    HeaderPageModule
   ]
 })
 export class ClientViewModule { }

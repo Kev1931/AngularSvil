@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 
 @Component({
   selector: 'app-client-view',
@@ -6,5 +6,5 @@ import { Component } from '@angular/core';
   styleUrls: ['./client-view.component.scss']
 })
 export class ClientViewComponent {
-
+@Input() cliente: string ="cliente"
 }

@@ -4,6 +4,7 @@ import { CommonModule } from '@angular/common';
 import { HeaderPageRoutingModule } from './header-page-routing.module';
 import { HeaderPageComponent } from './header-page.component';
 import { RouterModule } from '@angular/router';
+import {MatTabsModule} from '@angular/material/tabs'; 
 
 
 @NgModule({
@@ -13,7 +14,8 @@ import { RouterModule } from '@angular/router';
   imports: [
     CommonModule,
     HeaderPageRoutingModule,
-    RouterModule
+    RouterModule,
+    MatTabsModule
   ],
   exports:
   [
