@@ -28,7 +28,7 @@ numero: number = 1;
   if (this.numero > 2) {
     this.clientServices.getUserName.subscribe(resp=>{
       this.UserName=resp;
-  }); 
+  });
 }
 else
 {
@@ -46,6 +46,10 @@ goToProduct(){
 goToClient(){
 
   this.router.navigateByUrl("template/client");
+}
+goToUser(){
+
+  this.router.navigateByUrl("template/user");
 }
 Logout(){
 

@@ -10,10 +10,10 @@ import { UserService } from '../services/user.service';
 })
 export class LoginComponent {
 
- 
+
  isHidden=true;
  name:string="";
-  
+
   formGroupLogin: FormGroup;
 
   isValid: boolean = false;
@@ -38,7 +38,7 @@ export class LoginComponent {
       console.log(this.formGroupLogin.value)
       this.name=this.formGroupLogin.value.name;
     }
-   
+
      this.userService.getUser().subscribe(resp =>{
        console.log(resp);
        console.log(this.formGroupLogin.value)
@@ -55,12 +55,12 @@ export class LoginComponent {
   }
   goToLogin(){
 
-    
+
     this.isHidden=!this.isHidden;
-   
+
  }
 
-  
+
 
 
 }

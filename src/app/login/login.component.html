@@ -4,7 +4,7 @@
     <mat-menu #menu="matMenu">
       <button mat-menu-item (click)="goToLogin()">Login</button>
     </mat-menu>
-    
+
 
 
     <div [hidden]="isHidden" >
@@ -22,9 +22,9 @@
             Error!
         </div>
 
-    
+
     <hr>
-    
+
     <div *ngFor="let user of users">
         name: {{ user.userName }}
         password: {{ user.password }}
@@ -36,4 +36,4 @@
 <h2 *ngFor="let user of users">Benvenuto:{{user.userName}}</h2>
 
 
-  
+

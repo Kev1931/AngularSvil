@@ -1,0 +1,6 @@
+<input type="text" placeholder="Cerca" [(ngModel)]="searchText" (input)="onSearchTextChanged(searchText)">
+<div [hidden]="Ishidden">
+<ul>
+  <li *ngFor="let item of filteredItems">{{ item }}</li>
+</ul>
+</div>

@@ -13,6 +13,10 @@ const routes: Routes = [
       {
         path: "client",
         loadChildren: () => import("./../pages/client/client-view/client-view.module").then(m => m.ClientViewModule)
+      },
+      {
+        path: "user",
+        loadChildren: () => import("./../pages/user/user-view/user-view.module").then(m => m.UserViewModule)
       }
     ]
   }
