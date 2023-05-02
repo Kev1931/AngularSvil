@@ -15,6 +15,7 @@ export class UserListComponent implements OnInit   {
   users: string[] = [];
   filteredItems: string[] = [];
   Ishidden = true;
+
   constructor(private router: Router, private Userservice: UserService)
   {  }
   ngOnInit(): void {
@@ -27,11 +28,16 @@ export class UserListComponent implements OnInit   {
     this.Ishidden = false;
     this.searchText = searchText;
     this.filteredItems = this.users.filter(users => users.toLowerCase().includes(searchText.toLowerCase()));
+    this.Userservice.setUsersObservable = this.filteredItems;
     if (this.searchText == '')
     {
     this.Ishidden = true;
     }
   }
+
+
+
+
 }
 
 

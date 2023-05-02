@@ -4,3 +4,12 @@
   <li *ngFor="let item of filteredItems">{{ item }}</li>
 </ul>
 </div>
+<hr>
+
+<div>
+  <select [(ngModel)]="searchText">
+    <option value="">Seleziona il tipo</option>
+    <option *ngFor="let item of filteredItems" [value]="item">{{ item}}</option>
+  </select>
+
+</div>
