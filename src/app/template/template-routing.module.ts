@@ -17,7 +17,8 @@ const routes: Routes = [
       {
         path: "user",
         loadChildren: () => import("./../pages/user/user-view/user-view.module").then(m => m.UserViewModule)
-      }
+      },
+     
     ]
   }
 

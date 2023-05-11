@@ -5,6 +5,8 @@ import { TemplateRoutingModule } from './template-routing.module';
 import { TemplateComponent } from './template.component';
 import { RouterModule } from '@angular/router';
 import { HeaderPageModule } from '../components/header-page/header-page.module';
+import { HttpClientModule } from '@angular/common/http';
+
 
 
 
@@ -17,6 +19,8 @@ import { HeaderPageModule } from '../components/header-page/header-page.module';
     TemplateRoutingModule,
     RouterModule,
     HeaderPageModule,
+    HeaderPageModule
+
    
   ],
   exports:[
