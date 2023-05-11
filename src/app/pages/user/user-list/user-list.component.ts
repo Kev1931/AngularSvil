@@ -21,6 +21,7 @@ export class UserListComponent implements OnInit   {
   filteredItems: string[] = [];
   Ishidden = true;
 
+<<<<<<< HEAD
   listLength: number = 3;
 
   displayedColumns: string[] = ['id', 'userName' ,'password'];
@@ -38,6 +39,8 @@ export class UserListComponent implements OnInit   {
   httpClient: any;
   userSubcription: any;
   shareService: any;
+=======
+>>>>>>> ad5238ff2bbb33f254f879d4b72cf107be3e22c4
   constructor(private router: Router, private Userservice: UserService)
   {  }
   ngOnInit(): void {
@@ -51,11 +54,13 @@ export class UserListComponent implements OnInit   {
     this.Ishidden = false;
     this.searchText = searchText;
     this.filteredItems = this.users.filter(users => users.toLowerCase().includes(searchText.toLowerCase()));
+    this.Userservice.setUsersObservable = this.filteredItems;
     if (this.searchText == '')
     {
     this.Ishidden = true;
     }
   }
+<<<<<<< HEAD
   private getAllList(){
     this.isLoading = true;
     this.userSubcription = this.Userservice.getUser(); 
@@ -86,6 +91,12 @@ export class UserListComponent implements OnInit   {
       this.dataSource.paginator.firstPage();
     }
   }
+=======
+
+
+
+
+>>>>>>> ad5238ff2bbb33f254f879d4b72cf107be3e22c4
 }
 
 

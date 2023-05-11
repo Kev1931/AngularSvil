@@ -24,8 +24,18 @@ export class UserService {
 ];
   UserRefresher$: any;
   constructor(private httpClient: HttpClient) { }
+ private _usersBehavior = new BehaviorSubject<string[]>([]);
 
+  get getUsersObservable()
+  {
+    return this._usersBehavior.asObservable();
+  }
+  set setUsersObservable(users: string[])
+  {
+   this._usersBehavior.next(users);
+  }
   getUser(){
+
     return this.httpClient.get("http://192.168.0.31:81/api/user/users");
   }
   getUsers(): Observable<string[]> {
