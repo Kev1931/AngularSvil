@@ -8,13 +8,16 @@ import { Router } from '@angular/router';
 })
 export class UserViewComponent implements OnInit{
   users: string[] = [];
-  filteredItems: string[] = [];
+  displayedColumns: string[] = ['userName'];
+  dataSource;
   constructor(private router: Router, private Userservice: UserService)
-  {  }
+  {
+this.dataSource = this.Userservice.getUser();
+  }
   ngOnInit(): void {
-  this.Userservice.getUsersObservable.subscribe(resp => {
+ /* this.Userservice.getUsersObservable.subscribe(resp => {
     this.filteredItems = resp;
-  })
+  })*/
   }
 
 
