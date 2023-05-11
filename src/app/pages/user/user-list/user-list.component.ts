@@ -59,7 +59,7 @@ export class UserListComponent implements OnInit   {
   }
   private getAllList(){
     this.isLoading = true;
-    this.userSubcription = this.Userservice.getUser(); 
+    this.userSubcription = this.Userservice.getUser();
     this.userSubcription
       .subscribe((resp: IUser[])=>{
         this.list = resp;
@@ -78,7 +78,7 @@ export class UserListComponent implements OnInit   {
     this.Userservice.getUser();
     this.getAllList();
   }
-  
+
 
   applyFilter(event: Event){
     const filterValue = (event.target as HTMLInputElement).value;

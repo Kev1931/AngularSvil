@@ -1,8 +1,8 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { Router } from '@angular/router';
-import { UserListRoutingModule } from './user-list-routing.module';
-import { UserListComponent } from './user-list.component';
+
+import { UserFilterRoutingModule } from './user-filter-routing.module';
+import { UserFilterComponent } from './user-filter.component';
 
 import { MatSortModule } from '@angular/material/sort';
 import { MatToolbarModule } from '@angular/material/toolbar';
@@ -16,15 +16,14 @@ import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { MatDialogModule } from '@angular/material/dialog';
 import { MatCardModule } from '@angular/material/card';
 import { FormsModule } from '@angular/forms';
-import { UserFilterModule } from '../user-filter/user-filter.module';
 
 @NgModule({
   declarations: [
-    UserListComponent
+    UserFilterComponent
   ],
   imports: [
     CommonModule,
-    UserListRoutingModule,
+    UserFilterRoutingModule,
     FormsModule,
     MatFormFieldModule,
     MatPaginatorModule,
@@ -36,14 +35,11 @@ import { UserFilterModule } from '../user-filter/user-filter.module';
     MatSnackBarModule,
     MatToolbarModule,
     MatDialogModule,
-    MatCardModule,
-    UserFilterModule
-
-
+    MatCardModule
   ],
   exports:
   [
-    UserListComponent
+    UserFilterComponent
   ]
 })
-export class UserListModule { }
+export class UserFilterModule { }
