@@ -16,6 +16,7 @@ import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { MatDialogModule } from '@angular/material/dialog';
 import { MatCardModule } from '@angular/material/card';
 import { FormsModule } from '@angular/forms';
+import { MatSelect, MatSelectChange, MatSelectModule } from '@angular/material/select';
 
 @NgModule({
   declarations: [
@@ -35,7 +36,8 @@ import { FormsModule } from '@angular/forms';
     MatSnackBarModule,
     MatToolbarModule,
     MatDialogModule,
-    MatCardModule
+    MatCardModule,
+    MatSelectModule
   ],
   exports:
   [

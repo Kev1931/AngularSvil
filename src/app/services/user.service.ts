@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { BehaviorSubject, map } from 'rxjs';
 import { Observable, of } from 'rxjs';
+import { IUser } from '../models/IUser';
 
 @Injectable({
   providedIn: 'root'
@@ -24,24 +25,46 @@ export class UserService {
 ];
   UserRefresher$: any;
   constructor(private httpClient: HttpClient) { }
- private _usersBehavior = new BehaviorSubject<string[]>([]);
+ //private _usersBehavior = new BehaviorSubject<string[]>([]);
+ private _userBehavior = new BehaviorSubject<IUser[]>([])
 
-  get getUsersObservable()
+get getUserObservable()
+{
+  return this._userBehavior.asObservable();
+}
+set setUserObservable(users: IUser[])
+{
+  this._userBehavior.next(users);
+}
+ /* get getUsersObservable()
   {
     return this._usersBehavior.asObservable();
   }
   set setUsersObservable(users: string[])
   {
    this._usersBehavior.next(users);
-  }
-  getUser(){
+  }*/
+  getUsers(){
+    return this.httpClient.get<IUser[]>("http://192.168.0.31:81/api/user/users").subscribe(resp => {
+    this.setUserObservable = resp;
+  });
 
-    return this.httpClient.get("http://192.168.0.31:81/api/user/users");
   }
-  getUsers(): Observable<string[]> {
+  UpdateUsers(){
+    return this.httpClient.get<IUser[]>("http://192.168.0.31:81/api/user/users");
+
+
+  }
+  UpdateUsersCombo(): Observable<IUser[]>{
+    return this.httpClient.get<IUser[]>("http://192.168.0.31:81/api/user/users");
+  }
+
+
+
+  /*getUsers(): Observable<string[]> {
     return of(this.users);
-  }
-  
+  }*/
+
 
 }
 

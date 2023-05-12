@@ -39,11 +39,11 @@ export class LoginComponent {
       this.name=this.formGroupLogin.value.name;
     }
 
-     this.userService.getUser().subscribe(resp =>{
+    /* this.userService.getUsers().subscribe(resp =>{
        console.log(resp);
        console.log(this.formGroupLogin.value)
        this.users = resp;
-     })
+     })*/
 
   }
 

@@ -17,6 +17,7 @@ import { MatDialogModule } from '@angular/material/dialog';
 import { MatCardModule } from '@angular/material/card';
 import { FormsModule } from '@angular/forms';
 import { UserFilterModule } from '../user-filter/user-filter.module';
+import { MatSelectModule } from '@angular/material/select';
 
 @NgModule({
   declarations: [
@@ -37,8 +38,8 @@ import { UserFilterModule } from '../user-filter/user-filter.module';
     MatToolbarModule,
     MatDialogModule,
     MatCardModule,
-    UserFilterModule
-
+    UserFilterModule,
+    MatSelectModule
 
   ],
   exports:

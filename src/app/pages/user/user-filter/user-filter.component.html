@@ -1,3 +1,11 @@
 <p>user-filter works!</p>
 <input type="text" placeholder="Cerca" [(ngModel)]="searchText" (input)="onSearchTextChanged(searchText)">
 
+<mat-form-field>
+  <mat-label>Roles</mat-label>
+  <mat-select (selectionChange)="onRoleSelectionChange($event.value)">
+    <mat-option *ngFor="let user of users" [value]="user.idRole">
+      {{user.idRole}}
+    </mat-option>
+  </mat-select>
+</mat-form-field>

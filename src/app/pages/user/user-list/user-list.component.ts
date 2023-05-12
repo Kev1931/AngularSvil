@@ -51,7 +51,7 @@ export class UserListComponent implements OnInit   {
     this.Ishidden = false;
     this.searchText = searchText;
     this.filteredItems = this.users.filter(users => users.toLowerCase().includes(searchText.toLowerCase()));
-    this.Userservice.setUsersObservable = this.filteredItems;
+   // this.Userservice.setUserObservable = this.filteredItems;
     if (this.searchText == '')
     {
     this.Ishidden = true;
@@ -59,8 +59,8 @@ export class UserListComponent implements OnInit   {
   }
   private getAllList(){
     this.isLoading = true;
-    this.userSubcription = this.Userservice.getUser();
-    this.userSubcription
+    this.userSubcription = this.Userservice.getUserObservable
+    //this.userSubcription
       .subscribe((resp: IUser[])=>{
         this.list = resp;
         this.dataSource = new MatTableDataSource(this.list);
@@ -75,7 +75,7 @@ export class UserListComponent implements OnInit   {
   updateList(){
     //this.backupServic.backupsRefresher$;
     //this.Userservice.loadVulnerabilities();
-    this.Userservice.getUser();
+    this.Userservice.getUsers();
     this.getAllList();
   }
 
