@@ -2,7 +2,7 @@
 <input type="text" placeholder="Cerca" [(ngModel)]="searchText" (input)="onSearchTextChanged(searchText)">
 
 <mat-form-field>
-  <mat-label>Roles</mat-label>
+  <mat-label>IdRole</mat-label>
   <mat-select (selectionChange)="onRoleSelectionChange($event.value)">
     <mat-option *ngFor="let user of users" [value]="user.idRole">
       {{user.idRole}}
