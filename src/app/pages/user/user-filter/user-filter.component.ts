@@ -35,38 +35,66 @@ export class UserFilterComponent implements OnInit{
   httpClient: any;
   userSubcription: any;
   shareService: any;
+  userNameFilter: string = "";
+  idRoleFilter: number = -1;
   constructor(private router: Router, private Userservice: UserService){}
 
   ngOnInit() {
-    this.Userservice.UpdateUsersCombo().subscribe(resp => {
-      this.filteredItems = resp
-      this.Userservice.setUserObservable = this.filteredItems;
-      this.users = this.filteredItems;
-    });
+    // this.Userservice.UpdateUsersCombo().subscribe(resp => {
+    //   this.filteredItems = resp
+    //   // this.Userservice.setUserObservable = this.filteredItems;
+    //   this.users = this.filteredItems;
+    // });
   }
   onSearchTextChanged(searchText: string): void {
     this.Userservice.UpdateUsersCombo().subscribe(resp => {
-    this.filteredItems = resp.filter(user => user.userName.toLowerCase().includes(searchText.toLowerCase()));
-    this.Userservice.setUserObservable = this.filteredItems;
-    this.users = this.filteredItems;
+    this.userNameFilter = searchText.toLowerCase();
+    this.loadListFilter();
+    // this.filteredItems = resp.filter(user => user.userName.toLowerCase().includes(searchText.toLowerCase()));
+    // this.Userservice.setUserObservable = this.filteredItems;
+    // this.users = this.filteredItems;
    });
 
-    this.Ishidden = false;
-    this.searchText = searchText;
+    // this.Ishidden = false
+    // this.searchText = searchText;
 
-    if (this.searchText == '')
-    {
-    this.Ishidden = true;
-    }
+    // if (this.searchText == '')
+    // {
+    // this.Ishidden = true;
+    // }
 
 
   }
-  onRoleSelectionChange(selectedRole: string): void {
-    this.searchText = selectedRole
+  onRoleSelectionChange(selectedRole: number): void {
     this.Userservice.UpdateUsersCombo().subscribe(resp => {
-      this.filteredItems = resp.filter(user => user.idRole === selectedRole);
-      this.Userservice.setUserObservable = this.filteredItems;
-      this.users = this.filteredItems;
+      this.idRoleFilter= selectedRole;
+      this.loadListFilter();
+      // this.filteredItems = resp.filter(user => user.idRole === selectedRole);
+      // this.Userservice.setUserObservable = this.filteredItems;
+      // this.users = this.filteredItems;
     });
   }
+  loadListFilter(){
+    this.Userservice.UpdateUsersCombo().subscribe(resp=>{
+      this.filteredItems=resp;
+      if(this.userNameFilter!=""){
+        this.filteredItems=this.filteredItems.filter(user=>user.userName.toLowerCase().includes(this.userNameFilter) );
+      }
+      if(this.idRoleFilter!=-1){
+        this.filteredItems=this.filteredItems.filter(user=>user.idRole==this.idRoleFilter);
+      }
+      this.Userservice.setUserObservable=this.filteredItems;
+      
+
+
+
+
+    });
+    
+  }
+    
+  
+
+
+
 }

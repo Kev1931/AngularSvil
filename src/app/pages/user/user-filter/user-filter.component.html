@@ -4,8 +4,11 @@
 <mat-form-field>
   <mat-label>Roles</mat-label>
   <mat-select (selectionChange)="onRoleSelectionChange($event.value)">
-    <mat-option *ngFor="let user of users" [value]="user.idRole">
+    <mat-option [value]= "-1">--</mat-option>
+    <mat-option [value]= "1">Admin</mat-option>
+    <mat-option [value]= "2">User</mat-option>
+    <!-- <mat-option *ngFor="let user of users" [value]="user.idRole">
       {{user.idRole}}
-    </mat-option>
+    </mat-option> -->
   </mat-select>
 </mat-form-field>
