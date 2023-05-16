@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { FormBuilder, FormGroup } from '@angular/forms';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { UserService } from 'src/app/services/user.service';
 
@@ -15,13 +15,18 @@ export class UserAddComponent {
   constructor(private fb: FormBuilder, private userService: UserService, private router: Router)
   {
     this.userFormGroup = fb.group({
-    userName: [''],
-    password: [''],
-    idRole: [-1]
+    userName: ['', Validators.required],
+    password: ['', Validators.required],
+    idRole: [1]
     });
   }
   addUser()
   {
+    if(!this.userFormGroup.valid)
+    {
+      alert("I campi userName e password non sono validi");
+      return;
+    }
     this.userService.addUser(this.userFormGroup.value).subscribe(resp => {
     this.router.navigateByUrl("template/user");
 

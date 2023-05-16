@@ -18,6 +18,7 @@ import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { MatDialogModule } from '@angular/material/dialog';
 import { MatCardModule } from '@angular/material/card';
 import { MatSelectModule } from '@angular/material/select';
+import { EditUserModule } from '../edit-user/edit-user.module';
 
 @NgModule({
   declarations: [
@@ -26,6 +27,7 @@ import { MatSelectModule } from '@angular/material/select';
   imports: [
     CommonModule,
     UserListRoutingModule,
+    EditUserModule,
     FormsModule,
     RouterModule,
     MatFormFieldModule,

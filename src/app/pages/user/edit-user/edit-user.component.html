@@ -17,14 +17,18 @@
       <input type="text" formControlName="id" readonly> <!-- Aggiungi un campo per l'ID dell'utente -->
     </label>
     <label>
-      Nome:
-      <input type="text" formControlName="name">
+      userName
+      <input type="text" formControlName="userName">
     </label>
     <label>
-      Email:
-      <input type="text" formControlName="email">
+      password:
+      <input type="text" formControlName="password">
     </label>
+    idRole: <select formControlName = 'idRole'>
+      <option [value]="1">admin</option>
+      <option [value]="2">user</option>
+     </select>
     <!-- Aggiungi qui gli altri campi... -->
     <button type="submit">Modifica</button>
   </form>
-  
+

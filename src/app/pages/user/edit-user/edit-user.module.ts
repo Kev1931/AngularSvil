@@ -16,6 +16,10 @@ import { RouterModule } from '@angular/router';
     EditUserRoutingModule,
     ReactiveFormsModule,
     RouterModule
+  ],
+  exports:
+  [
+    EditUserComponent
   ]
 })
 export class EditUserModule { }

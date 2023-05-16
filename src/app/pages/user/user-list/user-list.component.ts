@@ -98,6 +98,12 @@ export class UserListComponent implements OnInit   {
 
     console.log(id);
   }
+
+  edit(id: number)
+{
+  this.Userservice.setCurrentUserId(id.toString());
+  this.router.navigateByUrl("template/user-edit");
+}
   // update(id: number)
   // {
   //   this.Userservice.editUser(id).subscribe(resp => {
