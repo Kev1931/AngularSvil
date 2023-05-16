@@ -23,7 +23,7 @@ export class UserListComponent implements OnInit   {
 
   listLength: number = 3;
 
-  displayedColumns: string[] = ['id', 'userName' ,'password'];
+  displayedColumns: string[] = ['id', 'userName' ,'password', 'actions'];
 
   public UserSubcription?: Subscription;
 
@@ -38,8 +38,10 @@ export class UserListComponent implements OnInit   {
   httpClient: any;
   userSubcription: any;
   shareService: any;
+
   constructor(private router: Router, private Userservice: UserService)
   {  }
+
   ngOnInit(): void {
     this.updateList();
    /* this.Userservice.getUsers().subscribe(users => {
@@ -86,6 +88,19 @@ export class UserListComponent implements OnInit   {
     if (this.dataSource.paginator) {
       this.dataSource.paginator.firstPage();
     }
+  }
+  delete(id: number)
+  {
+    this.Userservice.DeleteUser(id).subscribe(resp => {
+    this.updateList();
+    alert("L'utente è stato eliminato con successo:" + resp);
+    })
+
+    console.log(id);
+  }
+  goToAdduser()
+  {
+  this.router.navigateByUrl("template/user-add");
   }
 }
 

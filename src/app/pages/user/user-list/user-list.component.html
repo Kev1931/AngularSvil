@@ -17,6 +17,7 @@
 <mat-toolbar>
 </mat-toolbar>
 <section style="width: 100%;">
+     <button (click)="goToAdduser()">Aggiungi User</button>
     <button (click)="updateList()" mat-button color="accent" class="backbroundButton">Aggiorna</button>
 </section>
 <mat-form-field>
@@ -41,6 +42,13 @@
       <th mat-header-cell *matHeaderCellDef mat-sort-header> password </th>
       <td mat-cell *matCellDef="let row" class="classColorText"> {{row.password }} </td>
     </ng-container>
+
+ <!-- Actions -->
+    <ng-container matColumnDef="actions" >
+      <th mat-header-cell *matHeaderCellDef mat-sort-header> actions </th>
+      <td mat-cell *matCellDef="let row" class="classColorText"> <a (click)="delete(row.id)">delete</a> </td>
+    </ng-container>
+
     <tr  mat-header-row *matHeaderRowDef="displayedColumns"></tr>
 
     <tr mat-row *matRowDef="let row; columns: displayedColumns;" ></tr>

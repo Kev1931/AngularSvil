@@ -45,18 +45,24 @@ set setUserObservable(users: IUser[])
    this._usersBehavior.next(users);
   }*/
   getUsers(){
-    return this.httpClient.get<IUser[]>("http://192.168.0.31:81/api/user/users").subscribe(resp => {
+    return this.httpClient.get<IUser[]>("http://localhost:5051/api/User/users").subscribe(resp => {
     this.setUserObservable = resp;
   });
 
   }
   UpdateUsers(){
-    return this.httpClient.get<IUser[]>("http://192.168.0.31:81/api/user/users");
+    return this.httpClient.get<IUser[]>("http://localhost:5051/api/User/users");
 
 
   }
   UpdateUsersCombo(): Observable<IUser[]>{
-    return this.httpClient.get<IUser[]>("http://192.168.0.31:81/api/user/users");
+    return this.httpClient.get<IUser[]>("http://localhost:5051/api/User/users");
+  }
+  addUser(user: IUser) {
+    return this.httpClient.post("http://localhost:5051/api/User/addUser", user);
+  }
+  DeleteUser(id:number) {
+    return this.httpClient.delete("http://localhost:5051/api/User/deleteUser?id=" + id);
   }
 
 

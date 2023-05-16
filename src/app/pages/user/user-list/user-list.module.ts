@@ -1,8 +1,10 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { Router } from '@angular/router';
+import { RouterModule } from '@angular/router';
 import { UserListRoutingModule } from './user-list-routing.module';
 import { UserListComponent } from './user-list.component';
+import { UserFilterModule } from '../user-filter/user-filter.module';
+import { FormsModule } from '@angular/forms';
 
 import { MatSortModule } from '@angular/material/sort';
 import { MatToolbarModule } from '@angular/material/toolbar';
@@ -15,8 +17,6 @@ import { MatProgressBarModule } from '@angular/material/progress-bar';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { MatDialogModule } from '@angular/material/dialog';
 import { MatCardModule } from '@angular/material/card';
-import { FormsModule } from '@angular/forms';
-import { UserFilterModule } from '../user-filter/user-filter.module';
 import { MatSelectModule } from '@angular/material/select';
 
 @NgModule({
@@ -27,6 +27,7 @@ import { MatSelectModule } from '@angular/material/select';
     CommonModule,
     UserListRoutingModule,
     FormsModule,
+    RouterModule,
     MatFormFieldModule,
     MatPaginatorModule,
     MatTableModule,
@@ -40,7 +41,6 @@ import { MatSelectModule } from '@angular/material/select';
     MatCardModule,
     UserFilterModule,
     MatSelectModule
-
   ],
   exports:
   [

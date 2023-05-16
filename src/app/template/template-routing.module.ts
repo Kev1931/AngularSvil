@@ -18,7 +18,11 @@ const routes: Routes = [
         path: "user",
         loadChildren: () => import("./../pages/user/user-view/user-view.module").then(m => m.UserViewModule)
       },
-     
+      {
+        path: "user-add",
+        loadChildren: () => import("./../pages/user/user-add/user-add.module").then(m => m.UserAddModule)
+      },
+
     ]
   }
 
