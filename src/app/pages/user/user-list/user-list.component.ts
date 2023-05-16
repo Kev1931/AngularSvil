@@ -98,9 +98,22 @@ export class UserListComponent implements OnInit   {
 
     console.log(id);
   }
+  // update(id: number)
+  // {
+  //   this.Userservice.editUser(id).subscribe(resp => {
+  //   this.updateList();
+  //   alert("L'utente è stato eliminato con successo:" + resp);
+  //   })
+
+  //   console.log();
+  // }
   goToAdduser()
   {
   this.router.navigateByUrl("template/user-add");
+  }
+  goToEdituser()
+  {
+  this.router.navigateByUrl("template/user-edit");
   }
 }
 
