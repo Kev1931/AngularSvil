@@ -1,5 +1,6 @@
 import { Component, OnDestroy } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup } from '@angular/forms';
+import { MatSnackBar } from '@angular/material/snack-bar';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Subscription } from 'rxjs';
 import { IUser } from 'src/app/models/IUser';
@@ -16,7 +17,13 @@ export class EditUserComponent implements OnDestroy {
   users: IUser[] = [];
   subscribeCurrentuserid?: Subscription;
 
-  constructor(private fb: FormBuilder, private userService: UserService, private router: Router, private route: ActivatedRoute)
+  constructor(
+    private fb: FormBuilder,
+    private userService: UserService,
+    private router: Router,
+    private route: ActivatedRoute,
+    private _snackBar: MatSnackBar
+    )
   {
     this.userFormGroup = fb.group({
     id: [''],
