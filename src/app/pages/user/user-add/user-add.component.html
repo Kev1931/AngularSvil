@@ -1,11 +1,24 @@
-<div>
-  <form [formGroup]="userFormGroup" (ngSubmit)="addUser()">
-   Username: <input type="text" formControlName = 'userName'>
-   password: <input type="text" formControlName = 'password'>
-   idRole: <select formControlName = 'idRole'>
-    <option [value]="1">admin</option>
-    <option [value]="2">user</option>
-   </select>
-   <input type="submit" value="Aggiungi user">
-  </form>
-</div>
+<form [formGroup]="userFormGroup" (ngSubmit)="addUser()">
+  <mat-form-field appearance="fill">
+    <mat-label>userName:</mat-label>
+    <input matInput formControlName="userName" placeholder="Inserisci userName">
+    <mat-error *ngIf="userFormGroup.get('userName')?.invalid && userFormGroup.get('userName')?.touched">
+      userName è obbligatorio
+    </mat-error>
+  </mat-form-field>
+  <mat-form-field appearance="fill">
+    <mat-label>password:</mat-label>
+    <input matInput formControlName="password" placeholder="Inserisci password">
+    <mat-error *ngIf="userFormGroup.get('password')?.invalid && userFormGroup.get('password')?.touched">
+      password è obbligatorio
+    </mat-error>
+  </mat-form-field>
+  <mat-form-field appearance="fill">
+    <mat-label>idRole</mat-label>
+    <mat-select formControlName="idRole">
+      <mat-option [value]="1">admin</mat-option>
+      <mat-option [value]="2">user</mat-option>
+    </mat-select>
+  </mat-form-field>
+  <button mat-button type="submit">Aggiungi</button>
+</form>

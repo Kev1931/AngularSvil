@@ -1,7 +1,10 @@
 import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { Router } from '@angular/router';
+import {ActivatedRoute, Router } from '@angular/router';
+import { IUser } from 'src/app/models/IUser';
 import { UserService } from 'src/app/services/user.service';
+import { MatSnackBar } from '@angular/material/snack-bar';
+import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-user-add',
@@ -11,25 +14,32 @@ import { UserService } from 'src/app/services/user.service';
 export class UserAddComponent {
 
   userFormGroup: FormGroup;
+  users: IUser[] = [];
+  subscribeCurrentuserid?: Subscription;
 
-  constructor(private fb: FormBuilder, private userService: UserService, private router: Router)
+  constructor(private fb: FormBuilder, private userService: UserService, private router: Router, private route: ActivatedRoute,
+    private _snackBar: MatSnackBar)
   {
     this.userFormGroup = fb.group({
-    userName: ['', Validators.required],
-    password: ['', Validators.required],
-    idRole: [1]
+      userName: ['', Validators.required],
+      password: ['', Validators.required],
+      idRole: [1]
     });
   }
-  addUser()
-  {
-    if(!this.userFormGroup.valid)
-    {
-      alert("I campi userName e password non sono validi");
-      return;
+  addUser() {
+    if(this.userFormGroup.valid) {
+        const user: IUser = this.userFormGroup.value;
+        this.userService.addUser(user).subscribe(
+            response => {
+                console.log(response);
+                this.router.navigateByUrl("template/user");
+                this._snackBar.open('Utente aggiunto con successo!!', 'Chiudi', {
+                    duration: 4000,
+                });
+            }
+        );
+    } else {
+        this.userFormGroup.markAllAsTouched();
     }
-    this.userService.addUser(this.userFormGroup.value).subscribe(resp => {
-    this.router.navigateByUrl("template/user");
-
-      })
-  }
+}
 }
