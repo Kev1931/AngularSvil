@@ -19,6 +19,7 @@ import { MatDialogModule } from '@angular/material/dialog';
 import { MatCardModule } from '@angular/material/card';
 import { MatSelectModule } from '@angular/material/select';
 import { EditUserModule } from '../edit-user/edit-user.module';
+import { ConfirmDialogModule } from 'src/app/components/confirm-dialog/confirm-dialog.module';
 
 @NgModule({
   declarations: [
@@ -29,6 +30,7 @@ import { EditUserModule } from '../edit-user/edit-user.module';
     UserListRoutingModule,
     EditUserModule,
     FormsModule,
+    ConfirmDialogModule,
     RouterModule,
     MatFormFieldModule,
     MatPaginatorModule,

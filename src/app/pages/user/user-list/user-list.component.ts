@@ -5,6 +5,9 @@ import { Observable, Subject, Subscription, of } from 'rxjs';
 import { startWith, debounceTime, switchMap, map } from 'rxjs/operators';
 import { MatSort } from '@angular/material/sort';
 import { MatPaginator } from '@angular/material/paginator';
+import { MatDialog } from '@angular/material/dialog';
+import { MatSnackBar } from '@angular/material/snack-bar';
+import { ConfirmDialogComponent } from 'src/app/components/confirm-dialog/confirm-dialog.component';
 import { IUser } from 'src/app/models/IUser';
 import { MatTableDataSource } from '@angular/material/table';
 
@@ -39,7 +42,10 @@ export class UserListComponent implements OnInit   {
   userSubcription: any;
   shareService: any;
 
-  constructor(private router: Router, private Userservice: UserService)
+  constructor(private router: Router,
+    private Userservice: UserService,
+    private dialog: MatDialog,
+    private snackBar: MatSnackBar,)
   {  }
 
   ngOnInit(): void {
@@ -89,16 +95,24 @@ export class UserListComponent implements OnInit   {
       this.dataSource.paginator.firstPage();
     }
   }
-  delete(id: number)
-  {
-    this.Userservice.DeleteUser(id).subscribe(resp => {
-    this.updateList();
-    alert("L'utente è stato eliminato con successo:" + resp);
-    })
+  delete(id: number) {
+    const dialogRef = this.dialog.open(ConfirmDialogComponent, {
+      width: '350px',
+    });
 
-    console.log(id);
+    dialogRef.afterClosed().subscribe((result) => {
+      if (result) {
+        this.Userservice.DeleteUser(id).subscribe(resp => {
+          this.updateList();
+          this.snackBar.open('Utente eliminato con successo', 'Chiudi', {
+            duration: 4000,
+          });
+        });
+
+        console.log(id);
+      }
+    });
   }
-
   edit(id: number)
 {
   this.Userservice.setCurrentUserId(id.toString());
