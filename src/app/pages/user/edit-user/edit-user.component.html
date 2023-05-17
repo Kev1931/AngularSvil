@@ -1,34 +1,28 @@
-<!-- <div>
-    <form [formGroup]="userFormGroup" (ngSubmit)="editUser()">
-     Username: <input type="text" formControlName = 'userName'>
-     password: <input type="text" formControlName = 'password'>
-     idRole: <select formControlName = 'idRole'>
-      <option [value]="-1">--</option>
-      <option [value]="1">admin</option>
-      <option [value]="2">user</option>
-     </select>
-     <input type="submit" value="Aggiungi user">
-    </form>
-  </div> -->
-
   <form [formGroup]="userFormGroup" (ngSubmit)="onSubmit()">
-    <label>
-      ID:
-      <input type="text" formControlName="id" readonly> <!-- Aggiungi un campo per l'ID dell'utente -->
-    </label>
-    <label>
-      userName
-      <input type="text" formControlName="userName">
-    </label>
-    <label>
-      password:
-      <input type="text" formControlName="password">
-    </label>
-    idRole: <select formControlName = 'idRole'>
-      <option [value]="1">admin</option>
-      <option [value]="2">user</option>
-     </select>
-    <!-- Aggiungi qui gli altri campi... -->
-    <button type="submit">Modifica</button>
-  </form>
-
+  <mat-form-field appearance="fill">
+    <mat-label>ID:</mat-label>
+    <input matInput formControlName="id" [readonly]="true">
+  </mat-form-field>
+  <mat-form-field appearance="fill">
+    <mat-label>userName:</mat-label>
+    <input matInput formControlName="userName" placeholder="Inserisci userName">
+    <mat-error *ngIf="userFormGroup.get('userName')?.invalid && userFormGroup.get('userName')?.touched">
+      userName è obbligatorio
+    </mat-error>
+  </mat-form-field>
+  <mat-form-field appearance="fill">
+    <mat-label>password:</mat-label>
+    <input matInput formControlName="password" placeholder="Inserisci password">
+    <mat-error *ngIf="userFormGroup.get('password')?.invalid && userFormGroup.get('password')?.touched">
+      password è obbligatorio
+    </mat-error>
+  </mat-form-field>
+  <mat-form-field appearance="fill">
+    <mat-label>idRole</mat-label>
+    <mat-select formControlName="idRole">
+      <mat-option [value]="1">admin</mat-option>
+      <mat-option [value]="2">user</mat-option>
+    </mat-select>
+  </mat-form-field>
+  <button mat-button type="submit">Modifica</button>
+</form>

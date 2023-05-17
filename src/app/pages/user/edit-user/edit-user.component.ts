@@ -1,5 +1,5 @@
 import { Component, OnDestroy } from '@angular/core';
-import { FormBuilder, FormControl, FormGroup } from '@angular/forms';
+import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Subscription } from 'rxjs';
@@ -26,10 +26,10 @@ export class EditUserComponent implements OnDestroy {
     )
   {
     this.userFormGroup = fb.group({
-    id: [''],
-    userName: [''],
-    password: [''],
-    idRole: [-1]
+    id: ['', Validators.required],
+    userName: ['', Validators.required],
+    password: ['',  Validators.required],
+    idRole: [-1, Validators.required]
     });
   }
   ngOnDestroy(): void {
@@ -56,8 +56,8 @@ export class EditUserComponent implements OnDestroy {
     if (userToEdit) {
       this.userFormGroup.setValue({
         id: userToEdit.id,
-        userName: userToEdit.userName,
-        password: userToEdit.password,
+        userName: userToEdit.userName.trim(),
+        password: userToEdit.password.trim(),
         idRole: userToEdit.idRole,
         // Imposta qui gli altri campi...
       });
@@ -65,18 +65,22 @@ export class EditUserComponent implements OnDestroy {
   }
 
   onSubmit(): void {
-    const user: IUser = this.userFormGroup.value;
-    this.userService.editUser(user).subscribe(
-      response => {
-        console.log(response);
-        this.router.navigateByUrl("template/user");
-        // Gestisci qui la risposta...
-      },
-      error => {
-        console.error(error);
-        // Gestisci qui gli errori...
-      }
-    );
+    if (this.userFormGroup.valid) {
+      const user: IUser = this.userFormGroup.value;
+      this.userService.editUser(user).subscribe(
+        response => {
+          console.log(response);
+          this.router.navigateByUrl("template/user");
+          this._snackBar.open('Modifica effettuata con successo', 'Chiudi', {
+            duration: 4000,
+          });
+        }
+      );
+    }
+    else
+    {
+      this.userFormGroup.markAllAsTouched();
+    }
   }
 
   editUser()
