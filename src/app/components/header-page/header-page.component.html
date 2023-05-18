@@ -1,13 +1,24 @@
-<div class="center">
+<mat-sidenav-container class="sidenav-container">
+  <mat-sidenav #sidenav class="sidenav" mode="side" position="start">
+    <div class="links">
+      <a (click)="goToProduct(); sidenav.close()" mat-button>Go to product</a>
+      <a (click)="goToClient(); sidenav.close()" mat-button>Go to client</a>
+      <a (click)="goToUser(); sidenav.close()" mat-button>Go to User</a>
+      <a (click)="Logout(); sidenav.close()" mat-button>Logout</a>
+    </div>
+  </mat-sidenav>
 
-  <a (click)="goToProduct()" class="links">Go to product</a>
-  <a (click)="goToClient()"class="links">Go to client</a>
-  <a (click)="goToUser()"class="links">Go to User</a>
-  <a (click)="Logout()"class="links">Logout</a>
+  <mat-sidenav-content>
+    <mat-toolbar>
+      <button mat-icon-button (click)="sidenav.toggle()">
+        <mat-icon>menu</mat-icon>
+      </button>
+    </mat-toolbar>
 
-</div>
-
-<h2>{{ UserName }}</h2>
-
-
-Counter header: {{ inputCounter }}
+    <!-- Content goes here -->
+    <div class="center">
+      <h2>{{ UserName }}</h2>
+      Counter header: {{ inputCounter }}
+    </div>
+  </mat-sidenav-content>
+</mat-sidenav-container>

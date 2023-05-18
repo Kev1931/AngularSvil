@@ -1,5 +1,5 @@
 .links{
-    padding:40px;
+    padding:50px;
 }
 .center{
     text-align: center;
@@ -9,3 +9,22 @@ h2{
     text-align: end;
     padding-right: 30px;
 }
+.mat-sidenav-container {
+    background-color: transparent !important;
+  }
+  
+  .mat-sidenav {
+   background-color: transparent !important;
+  }
+  .sidenav-container {
+    height: 100%;
+    display: flex;
+  }
+  .sidenav {
+    width: 250px;
+  }
+  
+  .mat-sidenav-content {
+    flex: 1;
+    overflow: auto;
+  }
