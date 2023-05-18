@@ -1,67 +1,66 @@
-import { Component, Input} from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { UserService } from '../services/user.service';
+import { IUser } from 'src/app/models/IUser';
+import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.scss']
 })
-export class LoginComponent {
-
-
- isHidden=true;
- name:string="";
+export class LoginComponent implements OnInit, OnDestroy {
+  isHidden = true;
+  name = "";
 
   formGroupLogin: FormGroup;
+  loginError = false;
+  users: IUser[] = [];
+  private subscription!: Subscription;
 
-  isValid: boolean = false;
-
-  users: any;
-
-
-
-  constructor(private router: Router, private fb: FormBuilder, private userService: UserService){
+  constructor(private router: Router, private fb: FormBuilder, private userService: UserService) {
     this.formGroupLogin = fb.group({
-      user: ['',Validators.minLength(3)],
-      password: ['',Validators.minLength(3)]
+      userName: ['', Validators.required],
+      password: ['', Validators.required]
     });
-
   }
 
+  ngOnInit() {
+    this.userService.getUsers().subscribe(users => {
+      this.users = users.map(user => ({
+        ...user,
+        userName: user.userName.trim(),
+        password: user.password.trim()
+      }));
+    });
+  }
 
-  login(){
-
-    this.isValid = this.formGroupLogin.valid;
-    if(this.formGroupLogin.valid){
-      console.log(this.formGroupLogin.value)
-      this.name=this.formGroupLogin.value.name;
+  login() {
+    const userName = this.formGroupLogin.value.userName.trim();
+    const password = this.formGroupLogin.value.password.trim();
+  
+    const user = this.users.find(user => user.userName === userName && user.password === password);
+    console.log(userName, password);
+    if (user) {
+      // Login riuscito!
+      this.loginError = false;
+      this.name = userName;
+      this.router.navigateByUrl("/template");
+    } else {
+      // Login fallito.
+      this.loginError = true;
     }
+  }
 
-    /* this.userService.getUsers().subscribe(resp =>{
-       console.log(resp);
-       console.log(this.formGroupLogin.value)
-       this.users = resp;
-     })*/
-
+  ngOnDestroy() {
+    if (this.subscription) {
+      this.subscription.unsubscribe();  // important to prevent memory leaks
+    }
   }
 
 
-  goToTemplate(){
-
-     this.router.navigateByUrl("template");
-    //this.UserName="mario";
+  goToLogin() {
+    this.isHidden = !this.isHidden;
   }
-  goToLogin(){
-
-
-    this.isHidden=!this.isHidden;
-
- }
-
-
-
-
 }
-

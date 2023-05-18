@@ -1,39 +1,25 @@
+<button mat-button [matMenuTriggerFor]="menu">Menù</button>
+<mat-menu #menu="matMenu">
+  <button mat-menu-item (click)="goToLogin()">Login</button>
+</mat-menu>
+
+<div [hidden]="isHidden" >
+  <form [formGroup]="formGroupLogin" (ngSubmit)="login()">
+    UserName <input type="text" formControlName="userName" >
+    Password <input type="password" formControlName="password">
+    <input type="submit" value="Login" [disabled]="!formGroupLogin.valid" >
+</form>
 
 
-    <button mat-button [matMenuTriggerFor]="menu">Menù</button>
-    <mat-menu #menu="matMenu">
-      <button mat-menu-item (click)="goToLogin()">Login</button>
-    </mat-menu>
+  <div *ngIf="loginError" class="error-message">
+    Errore di login! Controlla il tuo nome utente e la tua password.
+  </div>
 
-
-
-    <div [hidden]="isHidden" >
-        <form [formGroup]="formGroupLogin" (ngSubmit)="login()">
-            UserName <input  type="text" formControlName="user" >
-            Password <input type="password" formControlName="password">
-            <input type="submit" value="Login" [disabled]="!formGroupLogin.valid" >
-        </form>
-        <h2>{{ formGroupLogin.valid}}</h2>
-        <hr>
-        <div *ngIf="isValid">
-            Ok!
-        </div>
-        <div *ngIf="!isValid">
-            Error!
-        </div>
-
-
-    <hr>
-
-    <div *ngFor="let user of users">
-        name: {{ user.userName }}
-        password: {{ user.password }}
-    </div>
-
-
-    <div><button class="btn-bg" mat-raised-button ><a (click)="goToTemplate()" >Login</a></button></div>
+  <hr>
+  <div *ngFor="let user of users">
+    name: {{ user.userName }}
+    password: {{ user.password }}
+  </div>
 </div>
-<h2 *ngFor="let user of users">Benvenuto:{{user.userName}}</h2>
 
-
-
+<h2 *ngIf="!isHidden">Benvenuto: {{name}}</h2>
