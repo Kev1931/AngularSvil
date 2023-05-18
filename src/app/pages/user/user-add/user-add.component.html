@@ -22,3 +22,6 @@
   </mat-form-field>
   <button mat-button type="submit">Aggiungi</button>
 </form>
+<div *ngIf="userExists" class="error-message">
+  L'utente esiste già
+</div>
