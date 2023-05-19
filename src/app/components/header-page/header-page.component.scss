@@ -5,9 +5,9 @@
     text-align: center;
     padding-top: 50px;
 }
-h2{
-    text-align: end;
-    padding-right: 30px;
+h3{
+    text-align: center;
+    padding-right: 30px !important;
 }
 .mat-sidenav-container {
     background-color: transparent !important;
@@ -34,16 +34,11 @@ h2{
   .mat-toolbar{
     background-color: transparent !important;
   }
-  .mat-drawer {
-    position: relative;
-    z-index: 4;
-    display: block;
-    position: absolute;
-    top: 0;
-    bottom:0%;
-    z-index: 3;
-    outline: 0;
+  .mat-drawer-container {
+     position: fixed !important;
+    z-index: 1;
     box-sizing: border-box;
-    overflow-y: hidden;
-    transform: translate3d(-100%, 0, 0);
+    -webkit-overflow-scrolling: touch;
+    display: block;
+    overflow: hidden;
 }
