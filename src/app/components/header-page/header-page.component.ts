@@ -20,6 +20,7 @@ export class HeaderPageComponent implements OnInit {
       private userService: UserService){
 
 }
+
 inputCounter: number = 0;
 UserName: string = "";
 numero: number = 1;
