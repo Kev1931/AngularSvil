@@ -4,18 +4,23 @@
 </mat-menu>
 
 <div [hidden]="isHidden" >
-  <form [formGroup]="formGroupLogin" (ngSubmit)="login()">
-    UserName <input type="text" formControlName="userName" >
-    Password <input type="password" formControlName="password">
-    <input type="submit" value="Login" [disabled]="!formGroupLogin.valid" >
-</form>
+  <form [formGroup]="formGroupLogin" (ngSubmit)="login()" class="example-form">
+    <mat-form-field class="example-full-width">
+      <mat-label>UserName</mat-label>
+      <input matInput type="text" formControlName="userName" >
+    </mat-form-field>
+    <mat-form-field class="example-full-width">
+      <mat-label>Password</mat-label>
+      <input matInput type="password" formControlName="password">
+    </mat-form-field>
+    <button mat-raised-button color="primary" type="submit" [disabled]="!formGroupLogin.valid">Login</button>
+  </form>
 
 
   <div *ngIf="loginError" class="error-message">
-    Errore di login! Controlla il tuo nome utente e la tua password.
+  Login non riuscito! Controlla il tuo nome utente e la tua password.
   </div>
 
-  <hr>
   <div *ngFor="let user of users">
     name: {{ user.userName }}
     password: {{ user.password }}

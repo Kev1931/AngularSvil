@@ -7,6 +7,8 @@ import { MatButtonModule} from '@angular/material/button';
 import { ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import {MatMenuModule} from '@angular/material/menu';
+import { MatInputModule } from '@angular/material/input';
+import { MatFormFieldModule } from '@angular/material/form-field';
 
 
 
@@ -20,10 +22,12 @@ import {MatMenuModule} from '@angular/material/menu';
     CommonModule,
     LoginRoutingModule,
     MatButtonModule,
+    MatInputModule,
+    MatFormFieldModule,
     HttpClientModule,
     ReactiveFormsModule,
     MatMenuModule,
-    
+
      ],
   exports:[
     LoginComponent
