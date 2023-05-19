@@ -12,18 +12,18 @@ h3{
 .mat-sidenav-container {
     background-color: transparent !important;
   }
-  
+
   .mat-sidenav {
    background-color: transparent !important;
   }
   .sidenav-container {
     height: 100%;
-   
+
   }
   .sidenav {
     width: 250px;
   }
-  
+
   .mat-sidenav-content {
     flex: 1;
     overflow: auto;
@@ -35,15 +35,18 @@ h3{
     background-color: transparent !important;
   }
   .mat-drawer-container {
-     position:static !important;
+     position:flex !important;
     z-index: 1;
     box-sizing: border-box;
     -webkit-overflow-scrolling: touch;
     display: block;
     overflow: hidden;
-    
+
 }
 header {
  display: flex;
  flex-grow: 1;
+}
+.sidenav-open {
+  margin-left: 250px ;  /* Aumentare o diminuire in base alla larghezza della tua sidenav */
 }
