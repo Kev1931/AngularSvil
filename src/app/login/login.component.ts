@@ -39,13 +39,14 @@ export class LoginComponent implements OnInit, OnDestroy {
   login() {
     const userName = this.formGroupLogin.value.userName.trim();
     const password = this.formGroupLogin.value.password.trim();
-  
+
     const user = this.users.find(user => user.userName === userName && user.password === password);
     console.log(userName, password);
     if (user) {
       // Login riuscito!
       this.loginError = false;
       this.name = userName;
+      this.userService.setCurrentUserName(userName);
       this.router.navigateByUrl("/template");
     } else {
       // Login fallito.

@@ -34,6 +34,9 @@ export class UserService {
  private _currentUserId = new BehaviorSubject<string | null>(null);
   currentUserId$ = this._currentUserId.asObservable();
 
+  private _currentUserName = new BehaviorSubject<string | null>(null);
+  currentUserName$ = this._currentUserName.asObservable();
+
 
 get getUserObservable()
 {
@@ -43,6 +46,7 @@ set setUserObservable(users: IUser[])
 {
   this._userBehavior.next(users);
 }
+
  /* get getUsersObservable()
   {
     return this._usersBehavior.asObservable();
@@ -52,26 +56,30 @@ set setUserObservable(users: IUser[])
    this._usersBehavior.next(users);
   }*/
   getUsers(): Observable<IUser[]> {
-    return this.httpClient.get<IUser[]>("http://localhost:5110/api/User/users").pipe(
+    return this.httpClient.get<IUser[]>("http://localhost:5051/api/User/users").pipe(
       tap((resp: IUser[]) => {
         this.setUserObservable = resp;
       })
     );
   }
-  
+
+  setCurrentUserName(name: string) {
+    this._currentUserName.next(name);
+  }
+
   UpdateUsers(){
-    return this.httpClient.get<IUser[]>("http://localhost:5110Y/api/User/users");
+    return this.httpClient.get<IUser[]>("http://localhost:5051/api/User/users");
 
 
   }
   UpdateUsersCombo(): Observable<IUser[]>{
-    return this.httpClient.get<IUser[]>("http://localhost:5110Y/api/User/users");
+    return this.httpClient.get<IUser[]>("http://localhost:5051/api/User/users");
   }
   addUser(user: IUser) {
-    return this.httpClient.post("http://localhost:5110Y/api/User/addUser", user);
+    return this.httpClient.post("http://localhost:5051/api/User/addUser", user);
   }
   DeleteUser(id:number) {
-    return this.httpClient.delete("http://localhost:5110Y/api/User/deleteUser?id=" + id);
+    return this.httpClient.delete("http://localhost:5051/api/User/deleteUser?id=" + id);
   }
   /*editUser() {
     return this.httpClient.put("http://localhost:5110/api/User/updateUser");
@@ -81,11 +89,11 @@ set setUserObservable(users: IUser[])
   }
 
   editUser(user: IUser): Observable<IUser> {
-    return this.httpClient.put<IUser>("http://localhost:5110Y/api/User/updateUser", user);
+    return this.httpClient.put<IUser>("http://localhost:5051/api/User/updateUser", user);
   }
 
   getEditUsers(): Observable<IUser[]> {
-    return this.httpClient.get<IUser[]>("http://localhost:5110Y/api/User/users");
+    return this.httpClient.get<IUser[]>("http://localhost:5051/api/User/users");
   }
 
   /*getUsers(): Observable<string[]> {

@@ -1,6 +1,7 @@
 <mat-sidenav-container class="sidenav-container">
   <mat-sidenav #sidenav class="sidenav" mode="side" position="start">
-    
+    <h1>Benvenuto, {{ UserName }}</h1>
+
     <div class="links">
       <a (click)="goToProduct(); sidenav.close()" mat-button>Go to product</a>
       <a (click)="goToClient(); sidenav.close()" mat-button>Go to client</a>
@@ -15,10 +16,5 @@
         <mat-icon>menu</mat-icon>
       </button>
     </mat-toolbar>
-
-    <div class="center">
-      <h2>{{ UserName }}</h2>
-      Counter header: {{ inputCounter }}
-    </div>
   </mat-sidenav-content>
 </mat-sidenav-container>
