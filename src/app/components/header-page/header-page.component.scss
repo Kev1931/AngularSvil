@@ -35,10 +35,15 @@ h3{
     background-color: transparent !important;
   }
   .mat-drawer-container {
-     position: fixed !important;
+     position:static !important;
     z-index: 1;
     box-sizing: border-box;
     -webkit-overflow-scrolling: touch;
     display: block;
     overflow: hidden;
+    
+}
+header {
+ display: flex;
+ flex-grow: 1;
 }
