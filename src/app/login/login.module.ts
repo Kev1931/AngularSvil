@@ -31,9 +31,8 @@ import {  FailedDialogModule } from 'src/app/components/failed-dialog/failed-dia
     ReactiveFormsModule,
     MatMenuModule,
     MatDialogModule,
-    FailedDialogModule,
+    FailedDialogModule
     
-
 
      ],
   exports:[
