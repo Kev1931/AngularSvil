@@ -56,7 +56,7 @@ set setUserObservable(users: IUser[])
    this._usersBehavior.next(users);
   }*/
   getUsers(): Observable<IUser[]> {
-    return this.httpClient.get<IUser[]>("http://localhost:5051/api/User/users").pipe(
+    return this.httpClient.get<IUser[]>("http://localhost:5110/api/User/users").pipe(
       tap((resp: IUser[]) => {
         this.setUserObservable = resp;
       })
@@ -68,18 +68,18 @@ set setUserObservable(users: IUser[])
   }
 
   UpdateUsers(){
-    return this.httpClient.get<IUser[]>("http://localhost:5051/api/User/users");
+    return this.httpClient.get<IUser[]>("http://localhost:5110/api/User/users");
 
 
   }
   UpdateUsersCombo(): Observable<IUser[]>{
-    return this.httpClient.get<IUser[]>("http://localhost:5051/api/User/users");
+    return this.httpClient.get<IUser[]>("http://localhost:5110/api/User/users");
   }
   addUser(user: IUser) {
-    return this.httpClient.post("http://localhost:5051/api/User/addUser", user);
+    return this.httpClient.post("http://localhost:5110/api/User/addUser", user);
   }
   DeleteUser(id:number) {
-    return this.httpClient.delete("http://localhost:5051/api/User/deleteUser?id=" + id);
+    return this.httpClient.delete("http://localhost:5110/api/User/deleteUser?id=" + id);
   }
   /*editUser() {
     return this.httpClient.put("http://localhost:5110/api/User/updateUser");
@@ -89,11 +89,11 @@ set setUserObservable(users: IUser[])
   }
 
   editUser(user: IUser): Observable<IUser> {
-    return this.httpClient.put<IUser>("http://localhost:5051/api/User/updateUser", user);
+    return this.httpClient.put<IUser>("http://localhost:5110/api/User/updateUser", user);
   }
 
   getEditUsers(): Observable<IUser[]> {
-    return this.httpClient.get<IUser[]>("http://localhost:5051/api/User/users");
+    return this.httpClient.get<IUser[]>("http://localhost:5110/api/User/users");
   }
 
   /*getUsers(): Observable<string[]> {
@@ -101,7 +101,7 @@ set setUserObservable(users: IUser[])
   }*/
   loginUser(userName: string, password: string): Observable<{isSuccess: boolean, token?: string}> {
     return this.httpClient.post<{isSuccess: boolean, token?: string}>(
-      "http://localhost:5051/api/User/template",
+      "http://localhost:5110/api/User/template",
       { userName, password }
     );
   }

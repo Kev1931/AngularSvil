@@ -77,4 +77,11 @@ mat-sidenav-container{
   .divider{
     background-color: rgb(111, 110, 110);
   }
+  .box{
+    flex-basis: 15rem;
+    flex-grow: 1;
+    margin: 10px;
+    width: 100%;
+   // background-color: red; 
+}
 

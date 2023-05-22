@@ -1,30 +1,34 @@
-  <div>
-  <form [formGroup]="userFormGroup" (ngSubmit)="onSubmit()">
-  <mat-form-field appearance="fill">
-    <mat-label>ID:</mat-label>
-    <input matInput formControlName="id" [readonly]="true">
-  </mat-form-field>
-  <mat-form-field appearance="fill">
-    <mat-label>userName:</mat-label>
-    <input matInput formControlName="userName" placeholder="Inserisci userName">
-    <mat-error *ngIf="userFormGroup.get('userName')?.invalid && userFormGroup.get('userName')?.touched">
-      userName è obbligatorio
-    </mat-error>
-  </mat-form-field>
-  <mat-form-field appearance="fill">
-    <mat-label>password:</mat-label>
-    <input matInput formControlName="password" placeholder="Inserisci password">
-    <mat-error *ngIf="userFormGroup.get('password')?.invalid && userFormGroup.get('password')?.touched">
-      password è obbligatorio
-    </mat-error>
-  </mat-form-field>
-  <mat-form-field appearance="fill">
-    <mat-label>idRole</mat-label>
-    <mat-select formControlName="idRole">
-      <mat-option [value]="1">admin</mat-option>
-      <mat-option [value]="2">user</mat-option>
-    </mat-select>
-  </mat-form-field>
-  <button mat-button type="submit">Modifica</button>
-</form>
+<div class="container">
+  <div class="box space">
+    <form [formGroup]="userFormGroup" (ngSubmit)="onSubmit()">
+    <mat-form-field appearance="fill">
+      <mat-label>ID:</mat-label>
+      <input matInput formControlName="id" [readonly]="true">
+    </mat-form-field>
+    <mat-form-field appearance="fill">
+      <mat-label>userName:</mat-label>
+      <input matInput formControlName="userName" placeholder="Inserisci userName">
+      <mat-error *ngIf="userFormGroup.get('userName')?.invalid && userFormGroup.get('userName')?.touched">
+        userName è obbligatorio
+      </mat-error>
+    </mat-form-field>
+    <mat-form-field appearance="fill">
+      <mat-label>password:</mat-label>
+      <input matInput formControlName="password" placeholder="Inserisci password">
+      <mat-error *ngIf="userFormGroup.get('password')?.invalid && userFormGroup.get('password')?.touched">
+        password è obbligatorio
+      </mat-error>
+    </mat-form-field>
+    <mat-form-field appearance="fill">
+      <mat-label>idRole</mat-label>
+      <mat-select formControlName="idRole">
+        <mat-option [value]="1">admin</mat-option>
+        <mat-option [value]="2">user</mat-option>
+      </mat-select>
+    </mat-form-field>
+    <div>
+      <button mat-raised-button color="primary" type="submit">Modifica</button>
+    </div>
+  </form>
+</div>
 </div>

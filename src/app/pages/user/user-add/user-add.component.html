@@ -1,3 +1,5 @@
+<div class="container">
+  <div class="box space">
 <form [formGroup]="userFormGroup" (ngSubmit)="addUser()">
   <mat-form-field appearance="fill">
     <mat-label>userName:</mat-label>
@@ -20,8 +22,12 @@
       <mat-option [value]="2">user</mat-option>
     </mat-select>
   </mat-form-field>
-  <button mat-button type="submit">Aggiungi</button>
+  <div>
+  <button mat-raised-button color="primary" type="submit">Aggiungi</button>
+  </div>
 </form>
 <div *ngIf="userExists" class="error-message">
   L'utente esiste già
+</div>
+  </div>
 </div>
