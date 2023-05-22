@@ -50,7 +50,8 @@ export class UserAddComponent {
                 }
             }
         );
-    } else {
+    }
+    else {
         this.userFormGroup.markAllAsTouched();
     }
   }

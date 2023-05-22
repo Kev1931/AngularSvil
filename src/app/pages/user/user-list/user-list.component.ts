@@ -55,16 +55,9 @@ export class UserListComponent implements OnInit   {
       this.filteredItems = users;
     });*/
   }
-  onSearchTextChanged(searchText: string): void {
-    this.Ishidden = false;
-    this.searchText = searchText;
-    this.filteredItems = this.users.filter(users => users.toLowerCase().includes(searchText.toLowerCase()));
-   // this.Userservice.setUserObservable = this.filteredItems;
-    if (this.searchText == '')
-    {
-    this.Ishidden = true;
-    }
-  }
+
+
+
   private getAllList(){
     this.isLoading = true;
     this.userSubcription = this.Userservice.getUserObservable
