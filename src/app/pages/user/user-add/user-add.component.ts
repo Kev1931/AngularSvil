@@ -6,6 +6,7 @@ import { UserService } from 'src/app/services/user.service';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { Subscription } from 'rxjs';
 import { MatDialog } from '@angular/material/dialog';
+import { UserExistDialogComponent } from 'src/app/components/user-exist-dialog/user-exist-dialog.component';
 
 @Component({
   selector: 'app-user-add',
@@ -46,6 +47,9 @@ export class UserAddComponent {
             },
             error => {
                 if (error.status === 409) {
+                  const dialogRef = this.dialog.open(UserExistDialogComponent, {
+                    width: '350px',
+                  });
                     this.userExists = true;
                 }
             }

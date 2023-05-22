@@ -13,6 +13,7 @@ import { MatInputModule } from '@angular/material/input';
 import { MatSortModule } from '@angular/material/sort';
 import { MatButtonModule } from '@angular/material/button';
 import { MatDialogModule } from '@angular/material/dialog';
+import { UserExistDialogModule } from 'src/app/components/user-exist-dialog/user-exist-dialog.module';
 
 
 
@@ -25,6 +26,7 @@ import { MatDialogModule } from '@angular/material/dialog';
     UserAddRoutingModule,
     ReactiveFormsModule,
     RouterModule,
+    UserExistDialogModule,
     MatFormFieldModule,
     MatSelectModule,
     MatSnackBarModule,

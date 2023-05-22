@@ -10,6 +10,7 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ConfirmDialogComponent } from './components/confirm-dialog/confirm-dialog.component';
+import { UserExistDialogComponent } from './components/user-exist-dialog/user-exist-dialog.component';
 
 
 
@@ -17,8 +18,6 @@ import { ConfirmDialogComponent } from './components/confirm-dialog/confirm-dial
 @NgModule({
   declarations: [
     AppComponent,
-    
-
   ],
   imports: [
     BrowserModule,
